@@ -13,7 +13,7 @@
                     <h2>Laravel 9 CRUD Example Tutorial</h2>
                 </div>
                 <div class="pull-right mb-2">
-                    <a class="btn btn-success" href="{{ route('companies.create') }}"> Create Company</a>
+                    <a class="btn btn-success" href="{{ route('todos.create') }}"> Create Company</a>
                 </div>
             </div>
         </div>
@@ -33,15 +33,15 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($companies as $company)
+                @foreach ($todos as $company)
                     <tr>
                         <td>{{ $company->id }}</td>
-                        <td>{{ $company->name }}</td>
-                        <td>{{ $company->email }}</td>
-                        <td>{{ $company->address }}</td>
+                        <td>{{ $company->title }}</td>
+                        <td>{{ $company->desc }}</td>
+                        <td>{{ $company->is_completed }}</td>
                         <td>
-                            <form action="{{ route('companies.destroy',$company->id) }}" method="Post">
-                                <a class="btn btn-primary" href="{{ route('companies.edit',$company->id) }}">Edit</a>
+                            <form action="{{ route('todos.destroy',$company->id) }}" method="Post">
+                                <a class="btn btn-primary" href="{{ route('todos.edit',$company->id) }}">Edit</a>
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">Delete</button>
@@ -51,7 +51,7 @@
                     @endforeach
             </tbody>
         </table>
-        {!! $companies->links() !!}
+        {!! $todos->links() !!}
     </div>
 </body>
 </html>

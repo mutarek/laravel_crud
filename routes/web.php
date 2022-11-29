@@ -14,4 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resources('todos',TodoController::class);
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::resource('todos',TodoController::class);
